@@ -1,7 +1,7 @@
 -- ╔══════════════════════════════════════════════════════════════╗
--- ║           CHAT REALTY - FULL SYSTEM v1.0                    ║
+-- ║           OUROX CHAT ROBLOX - FULL SYSTEM v1.0                    ║
 -- ║           Developers: YOUSIF_TOBE & AXL_7K                 ║
--- ║           © 2024 ChatRealty - All Rights Reserved           ║
+-- ║           © 2026 OuroxChat - All Rights Reserved           ║
 -- ╚══════════════════════════════════════════════════════════════╝
 
 -- ┌─────────────────────────────────────────────────────┐
@@ -142,8 +142,8 @@ end
 -- ══════════════════════════════════════════════════════════════
 --  DESTROY OLD GUI
 -- ══════════════════════════════════════════════════════════════
-if PlayerGui:FindFirstChild("ChatRealty") then
-    PlayerGui.ChatRealty:Destroy()
+if PlayerGui:FindFirstChild("OuroxChat") then
+    PlayerGui.OuroxChat:Destroy()
 end
 
 -- ══════════════════════════════════════════════════════════════
@@ -166,176 +166,18 @@ hideRobloxChat()
 --  MAIN SCREENGUI
 -- ══════════════════════════════════════════════════════════════
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "ChatRealty"
+ScreenGui.Name = "OuroxChat"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.DisplayOrder = 999
 ScreenGui.Parent = PlayerGui
 
 -- ══════════════════════════════════════════════════════════════
---  LOADING SCREEN (Full Black)
--- ══════════════════════════════════════════════════════════════
-local LoadingFrame = Instance.new("Frame")
-LoadingFrame.Name = "LoadingScreen"
-LoadingFrame.Size = UDim2.new(1,0,1,0)
-LoadingFrame.Position = UDim2.new(0,0,0,0)
-LoadingFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
-LoadingFrame.BorderSizePixel = 0
-LoadingFrame.ZIndex = 100
-LoadingFrame.Parent = ScreenGui
-
--- Loading content frame (centered)
-local LoadCenter = Instance.new("Frame")
-LoadCenter.Size = UDim2.new(0,420,0,340)
-LoadCenter.Position = UDim2.new(0.5,-210,0.5,-170)
-LoadCenter.BackgroundTransparency = 1
-LoadCenter.ZIndex = 101
-LoadCenter.Parent = LoadingFrame
-
--- Logo / Title
-local LoadTitle = Instance.new("TextLabel")
-LoadTitle.Size = UDim2.new(1,0,0,70)
-LoadTitle.Position = UDim2.new(0,0,0,0)
-LoadTitle.BackgroundTransparency = 1
-LoadTitle.Text = "مرحبا بك في شات ريلتي"
-LoadTitle.TextColor3 = Color3.fromRGB(255,255,255)
-LoadTitle.Font = Enum.Font.GothamBold
-LoadTitle.TextSize = 28
-LoadTitle.ZIndex = 102
-LoadTitle.Parent = LoadCenter
-
--- Subtitle developers
-local LoadDev = Instance.new("TextLabel")
-LoadDev.Size = UDim2.new(1,0,0,36)
-LoadDev.Position = UDim2.new(0,0,0,75)
-LoadDev.BackgroundTransparency = 1
-LoadDev.Text = "مطورين: YOUSIF_TOBE  X  AXL_7K"
-LoadDev.TextColor3 = Color3.fromRGB(180,180,180)
-LoadDev.Font = Enum.Font.Gotham
-LoadDev.TextSize = 16
-LoadDev.ZIndex = 102
-LoadDev.Parent = LoadCenter
-
--- Divider
-local LoadDiv = Instance.new("Frame")
-LoadDiv.Size = UDim2.new(0.85,0,0,1)
-LoadDiv.Position = UDim2.new(0.075,0,0,120)
-LoadDiv.BackgroundColor3 = Color3.fromRGB(60,60,60)
-LoadDiv.BorderSizePixel = 0
-LoadDiv.ZIndex = 102
-LoadDiv.Parent = LoadCenter
-
--- Warning label
-local LoadWarn = Instance.new("TextLabel")
-LoadWarn.Size = UDim2.new(1,0,0,30)
-LoadWarn.Position = UDim2.new(0,0,0,132)
-LoadWarn.BackgroundTransparency = 1
-LoadWarn.Text = "⚠️  تنبيه"
-LoadWarn.TextColor3 = Color3.fromRGB(255,80,80)
-LoadWarn.Font = Enum.Font.GothamBold
-LoadWarn.TextSize = 18
-LoadWarn.ZIndex = 102
-LoadWarn.Parent = LoadCenter
-
-local LoadWarnText = Instance.new("TextLabel")
-LoadWarnText.Size = UDim2.new(1,0,0,60)
-LoadWarnText.Position = UDim2.new(0,0,0,166)
-LoadWarnText.BackgroundTransparency = 1
-LoadWarnText.Text = "أي سب تلقائي يُرسل للمطورين\nولديهم كامل الحرية لحظرك  —  انتبه!"
-LoadWarnText.TextColor3 = Color3.fromRGB(220,220,220)
-LoadWarnText.Font = Enum.Font.Gotham
-LoadWarnText.TextSize = 14
-LoadWarnText.TextWrapped = true
-LoadWarnText.ZIndex = 102
-LoadWarnText.Parent = LoadCenter
-
--- Update link
-local LoadLink = Instance.new("TextLabel")
-LoadLink.Size = UDim2.new(1,0,0,24)
-LoadLink.Position = UDim2.new(0,0,0,236)
-LoadLink.BackgroundTransparency = 1
-LoadLink.Text = "t.me/addlist/T6HlvZw2I9c3MGQy"
-LoadLink.TextColor3 = Color3.fromRGB(0,162,255)
-LoadLink.Font = Enum.Font.Gotham
-LoadLink.TextSize = 12
-LoadLink.ZIndex = 102
-LoadLink.Parent = LoadCenter
-
--- Progress bar background
-local ProgressBG = Instance.new("Frame")
-ProgressBG.Size = UDim2.new(0.85,0,0,6)
-ProgressBG.Position = UDim2.new(0.075,0,0,278)
-ProgressBG.BackgroundColor3 = Color3.fromRGB(40,40,40)
-ProgressBG.BorderSizePixel = 0
-ProgressBG.ZIndex = 102
-ProgressBG.Parent = LoadCenter
-Instance.new("UICorner", ProgressBG).CornerRadius = UDim.new(0,3)
-
-local ProgressFill = Instance.new("Frame")
-ProgressFill.Size = UDim2.new(0,0,1,0)
-ProgressFill.BackgroundColor3 = Color3.fromRGB(0,162,255)
-ProgressFill.BorderSizePixel = 0
-ProgressFill.ZIndex = 103
-ProgressFill.Parent = ProgressBG
-Instance.new("UICorner", ProgressFill).CornerRadius = UDim.new(0,3)
-
-local LoadStatus = Instance.new("TextLabel")
-LoadStatus.Size = UDim2.new(1,0,0,20)
-LoadStatus.Position = UDim2.new(0,0,0,292)
-LoadStatus.BackgroundTransparency = 1
-LoadStatus.Text = "جاري التحميل..."
-LoadStatus.TextColor3 = Color3.fromRGB(130,130,130)
-LoadStatus.Font = Enum.Font.Gotham
-LoadStatus.TextSize = 12
-LoadStatus.ZIndex = 102
-LoadStatus.Parent = LoadCenter
-
--- Copyright bottom
-local LoadCopy = Instance.new("TextLabel")
-LoadCopy.Size = UDim2.new(1,0,0,20)
-LoadCopy.Position = UDim2.new(0,0,1,-30)
-LoadCopy.BackgroundTransparency = 1
-LoadCopy.Text = "© 2024 ChatRealty — All Rights Reserved"
-LoadCopy.TextColor3 = Color3.fromRGB(60,60,60)
-LoadCopy.Font = Enum.Font.Gotham
-LoadCopy.TextSize = 11
-LoadCopy.ZIndex = 102
-LoadCopy.Parent = LoadingFrame
-
--- Animate progress bar
-local function animateLoading(callback)
-    local steps = {
-        {0.2, "جاري تهيئة الواجهة..."},
-        {0.45, "جاري الاتصال بالخادم..."},
-        {0.65, "جاري تحميل الأصدقاء..."},
-        {0.85, "جاري تطبيق الإعدادات..."},
-        {1.0,  "اكتمل التحميل!"},
-    }
-    local i = 0
-    local function nextStep()
-        i = i + 1
-        if i > #steps then
-            task.wait(0.4)
-            callback()
-            return
-        end
-        local pct, label = steps[i][1], steps[i][2]
-        LoadStatus.Text = label
-        TweenService:Create(ProgressFill,
-            TweenInfo.new(0.5, Enum.EasingStyle.Quint),
-            {Size = UDim2.new(pct,0,1,0)}
-        ):Play()
-        task.delay(0.7, nextStep)
-    end
-    nextStep()
-end
-
--- ══════════════════════════════════════════════════════════════
 --  TOPBAR BUTTON (replaces Roblox chat button, same position)
 -- ══════════════════════════════════════════════════════════════
 -- Roblox chat button is at top-left corner, same coordinates
 local TopbarButton = Instance.new("TextButton")
-TopbarButton.Name = "ChatRealtyBtn"
+TopbarButton.Name = "OuroxChatBtn"
 TopbarButton.Size = UDim2.new(0, 44, 0, 44)
 -- Same position as Roblox chat topbar icon (X=104 after leaderboard)
 TopbarButton.Position = UDim2.new(0, 104, 0, 4)
@@ -828,7 +670,7 @@ t.me/addlist/T6HlvZw2I9c3MGQy
 ⭐ YOUSIF_TOBE
 ⭐ AXL_7K
 
-© 2024 ChatRealty
+© 2024 OuroxChat
 جميع الحقوق محفوظة
 
 أي نسخ أو توزيع
@@ -1089,24 +931,22 @@ end)
 -- ══════════════════════════════════════════════════════════════
 --  LAUNCH SEQUENCE - Animate Loading then show UI
 -- ══════════════════════════════════════════════════════════════
-animateLoading(function()
-    -- Fade out loading screen
-    TweenService:Create(LoadingFrame,
-        TweenInfo.new(0.8, Enum.EasingStyle.Quint),
-        {BackgroundTransparency = 1}
-    ):Play()
-    for _, desc in ipairs(LoadingFrame:GetDescendants()) do
-        if desc:IsA("TextLabel") or desc:IsA("Frame") then
-            pcall(function()
-                TweenService:Create(desc,
-                    TweenInfo.new(0.6),
-                    {BackgroundTransparency = 1, TextTransparency = 1}
-                ):Play()
-            end)
+-- ══════════════════════════════════════════════════════════════
+--  LAUNCH SEQUENCE
+-- ══════════════════════════════════════════════════════════════
+TopbarButton.Visible = true
+FriendsBtn.Visible   = true
+RightsBtn.Visible    = true
+TopbarLabel.Text     = "فتح"
+TopbarIcon.Text      = "💬"
+
+addMessage("", "🟢 مرحبا بك في اوروكس شات روبلوكس!", false, true)
+addMessage("", "المطورون: YOUSIF_TOBE & AXL_7K", false, true)
+
+pcall(loadMessages)
         end
     end
     task.wait(0.9)
-    LoadingFrame:Destroy()
 
     -- Show topbar buttons
     TopbarButton.Visible = true
@@ -1116,11 +956,11 @@ animateLoading(function()
     TopbarIcon.Text      = "💬"
 
     -- Welcome system message
-    addMessage("", "🟢 مرحبا بك في شات ريلتي!", false, true)
+    addMessage("", "🟢 مرحبا بك في اوروكس شات روبلوكس!", false, true)
     addMessage("", "المطورون: YOUSIF_TOBE & AXL_7K", false, true)
 
     -- Initial load
     pcall(loadMessages)
 end)
 
-print("[ChatRealty] ✅ Loaded Successfully — by YOUSIF_TOBE & AXL_7K")
+print("[OuroxChat] ✅ Loaded Successfully — by YOUSIF_TOBE & AXL_7K")
